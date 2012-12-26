@@ -1,0 +1,79 @@
+<section class="index index_admin">
+
+<?php
+foreach($this->infosUsers as $user)
+{
+	echo '<div class="user_adm" id="'.$user['infos']->id.'">';
+		
+		if($user['isAdmin'] == false)
+		{
+			if($user['infos']->demande_change > 0) {$img = '_ask';}
+			else {$img = '';}
+			
+			echo '<img src="'.$this->baseUrl('/images/shape_align_bottom'.$img.'.png').'" alt="Changer l\'offre" title="Changer l\'offre" class="ajax_editOffre" />';
+			echo '<img src="'.$this->baseUrl('/images/cross.png').'" alt="Supprimer" title="Supprimer" class="ajax_SupprUser" />';
+			
+			echo '<ul class="menuOffres" id="menu_'.$user['infos']->id.'">';
+				$i = 0;
+				$iMax = count($this->offres);
+				
+				foreach($this->offres as $val)
+				{
+						if($user['infos']->offre == $val['id']) {$class = 'actuel';}
+					elseif($user['useOctet'] > Octet($val['limit'], $val['limit_unite'])) {$class = 'tooSmall';}
+					else {$class = '';}
+					
+					$classBorder = '';
+					if($i == 0) {$classBorder = 'first';}
+					if($i == $iMax) {$classBorder = 'last';}
+					$i++;
+					
+					if($class != '') {$class .= ' '.$classBorder;}
+					else {$class = $classBorder;}
+					
+					if($val['id'] == $user['infos']->demande_change) {$ask = ' (Demandé)';}
+					else {$ask = '';}
+					
+					echo '<li id="acc_'.$val['id'].'" class="'.$class.'">'.$val['name'].' '.$val['limit'].$val['limit_unite'].$ask.'</li>';
+				}
+			echo '</ul>';
+			$class = '';
+		}
+		else {$class = 'class="admin_leftimg"';}
+		
+		if($user['isAdmin'] == true) {$img = '_red';}
+		else {$img = '';}
+		
+		echo '<img src="'.$this->baseUrl('/images/user'.$img.'.png').'" alt="user" '.$class.' />';
+		echo '<p class="admin_nameUser">'.$user['infos']->login.'</p>';
+		
+		echo '<div class="action">';
+			echo '<span>Espace utilisé : '.$user['useAff'].' / '.$user['limit'].$user['limit_unit'].' disponible.</span>';
+			echo '<div class="end_float"></div>';
+		echo '</div>';
+		echo '<div class="taille admin_taille">';
+			if($user['usePrct'] > 0)
+			{
+				if($user['usePrct'] >= 100) {$class = 'cornerAll';}
+				else {$class = 'cornerLeft';}
+				echo '<div class="use '.$class.'" style="width: '.$user['usePrct'].'px;"></div>';
+			}
+			
+			if($user['usePrct'] < 100)
+			{
+				if($user['usePrct'] == 0) {$class = 'cornerAll';}
+				else {$class = 'cornerRight';}
+				$width = 100 - $user['usePrct'];
+				echo '<div class="free '.$class.'" style="width: '.$width.'px;"></div>';
+			}
+			
+			echo '<div class="end_float"></div>';
+		echo '</div>';
+	echo '</div>';
+	echo '<div class="end_float" id="end_'.$user['infos']->id.'"><br/></div>';
+}
+
+echo $this->paginator;
+?>
+
+</section>

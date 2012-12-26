@@ -1,0 +1,26 @@
+<header>
+	<div class="left">
+		<a href="<?php echo $this->baseUrl('/');?>" title="Insset Files"><img src="<?php echo $this->baseUrl('/images/logo.png');?>" alt="Insset Files" /></a>
+		<p>Le nouveau service de stockage en ligne</p>
+	</div>
+	<div class="right">
+		<img src="<?php echo $this->baseUrl('/images/user.png');?>" alt="User" id="icon_user" />
+		<p>
+			<?php
+			if($this->logged)
+			{
+				if($this->isAdmin) {echo '<a href="'.$this->baseUrl('/admin/').'" title="Aller à l\'administration">Administration</a> / ';}
+				else {echo '<a href="'.$this->baseUrl('/user/offre').'" title="Changer mon offre" class="ajax_changeOffre">Changer d\'offre</a> / ';}
+				echo '<a href="'.$this->baseUrl('/user/bye').'" title="Déconnexion">Me déconnecter</a>';
+			}
+			else
+			{
+				echo '<a href="'.$this->baseUrl('/user/hi').'" id="ajax_co" title="Gérer mon compte">Me connecter</a> / ';
+				echo '<a href="'.$this->baseUrl('/user/new').'" title="M\'inscrire" class="ajax_new">M\'inscrire</a>';
+			}
+			?>
+		</p>
+	</div>
+	<div class="end_float"></div>
+</header>
+<section class="body">

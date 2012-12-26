@@ -1,0 +1,57 @@
+<?php
+//Zend_Debug::dump($this);
+
+if($this->pageCount > 1)
+{
+	echo '<div class="paginator">';
+	
+		echo '<div>';
+			//<!-- First page link -->
+			if(isset($this->previous))
+			{
+				echo '<a href="'.$this->url(array('page' => $this->first)).'">';
+		    	echo '<img src="'.$this->baseUrl('/images/control_first.png').'" alt="premier" />';
+		  		echo '</a>';
+			}
+			else {echo '<img src="'.$this->baseUrl('/images/control_first_grey.png').'" alt="premier" />';}
+		
+			//<!-- Previous page link -->
+			if(isset($this->previous))
+			{
+				echo '<a href="'.$this->url(array('page' => $this->previous)).'">';
+		    	echo '<img src="'.$this->baseUrl('/images/control_before.png').'" alt="précédent" />';
+		  		echo '</a>';
+			}
+			else {echo '<img src="'.$this->baseUrl('/images/control_before_grey.png').'" alt="précédent" />';}
+		echo '</div>';
+		
+		echo '<div class="paginator_lst">';
+			for($i=1; $i<=$this->pageCount; $i++)
+			{
+				if($i == $this->current) {echo '<span class="paginator_actual">'.$i.'</span>';}
+				else {echo '<span><a href="'.$this->url(array('page' => $i)).'">'.$i.'</a></span>';}
+			}
+		echo '</div>';
+		
+		echo '<div>';
+			//<!-- Next page link -->
+			if(isset($this->next))
+			{
+				echo '<a href="'.$this->url(array('page' => $this->next)).'">';
+		    	echo '<img src="'.$this->baseUrl('/images/control_next.png').'" alt="suivant" />';
+		  		echo '</a>';
+			}
+			else {echo '<img src="'.$this->baseUrl('/images/control_next_grey.png').'" alt="suivant" />';}
+		
+			//<!-- Last page link -->
+			if (isset($this->next))
+			{
+				echo '<a href="'.$this->url(array('page' => $this->last)).'">';
+		    	echo '<img src="'.$this->baseUrl('/images/control_last.png').'" alt="dernier" />';
+		  		echo '</a>';
+			}
+			else {echo '<img src="'.$this->baseUrl('/images/control_last_grey.png').'" alt="dernier" />';}
+		echo '</div>';
+	echo '</div>';
+}
+?>

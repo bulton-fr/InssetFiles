@@ -1,0 +1,34 @@
+<section class="index">
+	<p>
+		<span class="title gras">Simple d'utilisation</span><br/>
+		J'envoi mes fichiers vers Insset Files.<br/><br/>
+		À tout moment, <span class="souligne">de n'importe où</span>, j'accède à mes fichiers.
+	</p>
+	
+	<h1>Plusieurs offres disponibles</h1>
+	
+	<?php
+	foreach($this->offres as $offres)
+	{
+		echo '<div class="all_offres">';
+			foreach($offres as $val)
+			{
+				if($val['suite'] == true) {$suite = 'offres_suite';}
+				else {$suite = '';}
+				
+				echo '<div class="offres '.$suite.' ajax_new">';
+					echo '<p class="nom">';
+						echo '<a href="'.$this->baseUrl('/user/new/offre/'.$val['id']).'" title="Offre '.$val['name'].' '.$val['limit'].$val['limit_unite'].'">'.$val['name'].'</a>';
+					echo '</p>';
+					echo '<p class="limit">';
+						echo '<a href="'.$this->baseUrl('/user/new/offre/'.$val['id']).'" title="Offre '.$val['name'].' '.$val['limit'].$val['limit_unite'].'">'.$val['limit'].$val['limit_unite'].'</a>';
+					echo '</p>';
+				echo '</div>';
+			}
+			echo '<div class="end_float"></div>';
+		echo '</div>';
+	}
+	?>
+	
+	<div class="profite"><p><a href="<?php echo $this->baseUrl('/user/new');?>" title="J'en profite" class="ajax_new">J'en profite maintenant !</a></p></div>
+</section>

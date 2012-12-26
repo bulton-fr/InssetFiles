@@ -1,0 +1,98 @@
+/* bloc contenant la liste des offres disponibles */
+.all_offres
+{
+	text-align: center;
+	margin-left: 20px;
+}
+
+/** Style d'une offre **/
+
+/* survole des textes d'une offre */
+.offres:hover p a, .offres:hover p a:hover,
+.profite a, .profite a:hover
+{color: white;}
+
+.offres_suite {margin-right: 30px;} /* Si ce n'est pas la dernière offre de la ligne */
+/* L'offre */
+.offres
+{
+	border: 2px solid #FC7402;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	
+	float: left;
+	
+	padding: 15px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 110px;
+}
+
+/* Survole de l'offre */
+.offres:hover
+{
+	border: 2px solid #FC7402;
+	color: white;
+	background-color: #FEB273;
+	cursor: pointer;
+}
+
+/* Le nom de l'offre */
+.offres .nom
+{
+	font-size: 1.2em;
+	margin-bottom: 15px;
+}
+
+/* La limit en taille de l'offre */
+.offres .limit
+{
+	font-weight: bold;
+	font-size: 2em;
+}
+
+/* Le lien "j'en profite" */
+.profite
+{
+	margin-top: 20px;
+	padding: 7px 10px;
+	
+	background-color: #FC7402;
+	border: 2px solid #FC7402;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	
+	color:white;
+	font-weight: bold;
+	font-size: 1.3em;
+	width: 220px;
+	
+	position: absolute;
+	left: 50%;
+	margin-left: -110px;
+}
+
+/** Le formulaire d'inscription **/
+form#new #offres-element
+{
+	margin-left: 7px;
+	margin-bottom: 10px;
+}
+
+form#new dd {margin-left: 120px;}
+
+form#new dt#mail-label, form#new dt#login-label, form#new dt#pwd-label, form#new p.hint,
+form#new #mail, form#new #login, form#new #pwd
+{float: left;}
+
+form#new dt#captcha-label, form#new dt#login-label, form#new dt#pwd-label {clear: both;}
+form#new dt#pwd-label {margin-top: 3px;}
+form#new dt {width: 120px; padding-top: 4px;}
+form#new dt#offres-label, form#new dt#send-label {width: auto; margin-bottom: 3px;}
+form#new dd#send-element input {background-image: url("../images/user.png");}
+form#new dd#send-element {text-align: center;}
+form#new dd#captcha-element, form#new dd#send-element {margin-left: 0px;}
+form#new p.hint {margin-top: 4px;}
+form#new p.hint img {display: none;}

@@ -1,0 +1,15 @@
+SetEnv APPLICATION_ENV development
+addDefaultCharset "UTF-8"
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+RewriteRule ^.*$ /~mvermeulen/index.php [NC,L]
+
+#RewriteEngine on
+#RewriteRule !\.(js|ico|gif|jpg|png|css|php|TTF)$ index.php
+
+#php_flag magic_quotes_gpc off
+#php_flag register_globals off

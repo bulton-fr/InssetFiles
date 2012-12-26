@@ -1,0 +1,47 @@
+<input type="hidden" name="idDirRead" id="idDirRead" value="<?php echo $this->idDir; ?>" />
+<article><p>Chemin : </p><ul>
+	<?php
+	if(count($this->chemin) > 0)
+	{
+		foreach($this->chemin as $val)
+		{
+			echo '<li>/</li>';
+			echo '<li class="link" id="d'.$val['id'].'">'.$val['name'].'</li>';
+		}
+	}
+	else {echo '<li>/</li>';}
+	?>
+</ul><div class="end_float"></div></article>
+
+<section class="cont_lstdirfile">
+	<?php
+	if($this->lst['nbdirfile'] > 0)
+	{
+		foreach($this->lst['dir'] as $val)
+		{
+			echo '<div class="dossier" id="d'.$val['id'].'">'.$val['name'].'</div>';
+			echo '<div class="infosDF" id="info_d'.$val['id'].'">Nombre de fichiers : '.$val['nbFile'].' - Taille : '.$val['size'];
+				echo '<div class="img_supprimer" id="su_d'.$val['id'].'"></div>';
+				echo '<span>dossier</span>';
+			echo '</div>';
+		}
+		
+		foreach($this->lst['file'] as $val)
+		{
+			echo '<div class="file" id="f'.$val['id'].'">'.$val['name'].'</div>';
+			echo '<div class="infosDF" id="info_f'.$val['id'].'">Date d\'upload : '.$val['create'].' - Taille : '.$val['size'];
+				echo '<div class="img_supprimer" id="su_f'.$val['id'].'"></div>';
+				echo '<a href="'.$this->baseUrl('/fichier/telecharger/idFile/'.$val['id']).'">';
+					echo '<div class="img_telecharger" id="dl_f'.$val['id'].'"></div>';
+				echo '</a>';
+				echo '<span>fichier</span>';
+			echo '</div>';
+		}
+	}
+	else {echo 'Aucun fichier ou dossier.';}
+	?>
+	<div class='end_float'></div>
+</section>
+<section class="infosDirFile">
+	
+</section>

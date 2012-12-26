@@ -1,0 +1,37 @@
+<?php echo $this->doctype('HTML5'); ?>
+<html id="iframeHtml">
+<head>
+	<title>INSSET Files</title>
+
+	<!-- 		CSS		-->
+	<link type="text/css" href="<?php echo $this->baseUrl('/css/reset.css');?>" rel="stylesheet" />
+	<link type="text/css" href="<?php echo $this->baseUrl('/css/header.css');?>" rel="stylesheet" />
+	<link type="text/css" href="<?php echo $this->baseUrl('/css/base.css');?>" rel="stylesheet" />
+	<link type="text/css" href="<?php echo $this->baseUrl('/css/overlay.css');?>" rel="stylesheet" />
+	
+	<?php
+	if(isset($this->css) && !is_null($this->css))
+	{
+		foreach($this->css as $val) {echo '<link type="text/css" href="'.$this->baseUrl('/css/'.$val.'.css').'" rel="stylesheet" />';}
+	}
+	?>
+
+	<!--		JAVASCRIPT		-->
+	<script type="text/javascript">var baseUrl = "<?php echo $this->baseUrl(); ?>";</script>
+	
+	<script type="text/javascript" src="<?php echo $this->baseUrl('/js/jquery.js');?>"></script>
+	<script type="text/javascript" src="<?php echo $this->baseUrl('/js/header.js');?>"></script>
+	<script type="text/javascript" src="<?php echo $this->baseUrl('/js/overlay.js');?>"></script>
+	
+	<?php
+	if(isset($this->js) && !is_null($this->js))
+	{
+		foreach($this->js as $val) {echo '<script type="text/javascript" src="'.$this->baseUrl('/js/'.$val.'.js').'"></script>';}
+	}
+	?>
+        
+</head>
+<body>
+	<?php echo $this->layout()->content; ?>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<section class="index index_user">
+	<h1>Mes fichiers</h1>
+	
+	<div class="dir">
+		<?php
+		echo '<img src="'.$this->baseUrl('/images/home_green.png').'" alt="home" id="d'.$this->infosDirRoot['id'].'" />';
+		echo '<p id="d'.$this->infosDirRoot['id'].'">Mon dossier</p>';
+		
+		echo '<div class="action" id="dir_'.$this->infosDirRoot['id'].'">';
+			echo '<a href="'.$this->baseUrl('/fichier/add/').'" title="Ajouter un fichier" id="ajax_addfile">';
+				echo '<img src="'.$this->baseUrl('/images/document_a4_add.png').'" alt="Ajouter un fichier" />';
+			echo '</a>';
+			echo '<a href="'.$this->baseUrl('/dossier/add/').'" title="Ajouter un dossier" id="ajax_adddir">';
+				echo '<img src="'.$this->baseUrl('/images/folder_modernist_add.png').'" alt="Ajouter un dossier" />';
+			echo '</a>';
+			echo '<span>Espace utilisé : '.$this->useAff.' / '.$this->limit.$this->limit_unit.' disponible.</span>';
+			?>
+			<div class="end_float"></div>
+		</div>
+		<div class="taille">
+			<?php
+			//var_dump($this->usePrct);
+			if($this->usePrct > 0)
+			{
+				if($this->usePrct >= 100) {$class = 'cornerAll';}
+				else {$class = 'cornerLeft';}
+				echo '<div class="use '.$class.'" style="width: '.$this->usePrct.'px;"></div>';
+			}
+			
+			if($this->usePrct < 100)
+			{
+				if($this->usePrct == 0) {$class = 'cornerAll';}
+				else {$class = 'cornerRight';}
+				$width = 100 - $this->usePrct;
+				echo '<div class="free '.$class.'" style="width: '.$width.'px;"></div>';
+			}
+			?>
+			<div class="end_float"></div>
+		</div>
+	</div>
+	<div class="end_float"><br/></div>
+	<div id="lst_dirFile"><?php echo $this->action('lstdirfile', 'user', null, array('dir' => $this->infosDirRoot['id'])); ?></div>
+</section>

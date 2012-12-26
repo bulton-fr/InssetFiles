@@ -1,0 +1,92 @@
+/** Style de l'overlay **/
+
+/* Le fond noir autour de l'overlay */
+.overlay_fond
+{
+	display: none;
+	background-color: black;
+	opacity: 0.5;
+	
+	width: 100%;
+	height: 100%;
+	
+	position: absolute;
+	top:0;
+	left:0;
+	
+	z-index:10000;
+}
+
+/* L'overlay lui-même */
+.overlay
+{
+	display: none;
+	
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	
+	border: 2px solid #FC7402;
+	box-shadow: 1px 1px 12px #FC7402;
+	background-color: white;
+	padding: 5px 8px;
+	
+	z-index:10001;
+}
+
+/* Le bouton pour fermer l'overlay */
+.overlay_close
+{
+	position:relative;
+	top: -15px;
+	width: 19px;
+	height: 19px;
+	
+	background-image: url("../images/close.png");
+	background-repeat: no-repeat;
+	
+	z-index: 10002;
+	cursor: pointer;
+	
+	float: right;
+	right: -18px;
+}
+
+/* Le contenu de l'overlay */
+.overlay_cont
+{
+	clear: both;
+	position: relative;
+	top: -9px;
+}
+
+/* Le chargement de l'overlay */
+.overlay_load
+{
+	width: 150px;
+	border-bottom: 2px dotted #FC7402;
+	
+	text-align: center;
+	padding: 10px 0px;
+	
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -75px;
+	
+	z-index: 10003;
+	display: none;
+}
+
+/* Le pacman de chargement */
+#overlayLoadPacman
+{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: 21px;
+	margin-left: -90px;
+	
+	z-index: 10004;
+	display: none;
+}

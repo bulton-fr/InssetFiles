@@ -1,0 +1,98 @@
+/* Le bloc principal */
+section.index_user
+{
+	width: 650px;
+	height: 400px;
+	text-align: left;
+}
+
+/* Le titre du bloc */
+section.index_user h1
+{
+	margin-top: 20px;
+	text-align: center;
+}
+
+/** Liste des users **/
+
+p.admin_nameUser /* Le nom de l'user */
+{
+	min-width: 70px;
+	text-align: left;
+}
+
+/* La taille utilisé par l'user */
+div.admin_taille {margin-left: 35px;}
+
+/* Si l'user est admin, il faut faire un décalage pour que ça reste aligner avec le reste */
+.user_adm img.admin_leftimg {margin-left: 35px;}
+
+.user_adm img, .user_adm p, .user_adm div.action {float: left;}
+.user_adm > img, .user_adm > p {cursor: pointer;}
+.user_adm > p:hover {text-decoration: underline;}
+
+.user_adm p
+{
+	margin-top: 3px;
+	margin-left: 3px;
+}
+
+/* Les actions possible (création de fichier et dossier) */
+.user_adm div.action {margin-left: 10px;}
+.user_adm div.action img, .dir div.action span {margin-left: 8px;}
+.user_adm div.action span {font-style: italic;}
+
+/* Le menu pour le choix de l'offre */
+ul.menuOffres
+{
+	display: none;
+	list-style: none;
+	text-align: left;
+	
+	background-color: #FC7402;
+	color: white;
+	
+	z-index: 20;
+	position: absolute;
+	width: auto;
+	
+	border: 1px solid #FC7402;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+
+/* Chaque élément du menu */
+ul.menuOffres li
+{
+	cursor: pointer;
+	padding: 2px;
+}
+
+ul.menuOffres li:hover {background-color: #FE9641;} /* Quand on passe sur l'élément */
+ul.menuOffres li.actuel {background-color: #FEB273;} /* S'il s'agit de l'offre actuel de l'user */
+ul.menuOffres li.tooSmall {background-color: #F5F5F5; color: #FC7402;} /* Si l'offre n'est pas possible pour l'user */
+
+/* S'il s'agit du premier élément du menu */
+ul.menuOffres li.first
+{
+	-moz-border-radius-topleft: 4px;
+	-webkit-border-top-left-radius: 4px;
+	border-top-left-radius: 4px;
+	-moz-border-radius-topright: 4px;
+	-webkit-border-top-right-radius: 4px;
+	border-top-right-radius: 4px;
+}
+
+/* S'il s'agit du dernier élément du menu */
+ul.menuOffres li.last
+{
+	-moz-border-radius-bottomleft: 4px;
+	-webkit-border-bottom-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+	-moz-border-radius-bottomright: 4px;
+	-webkit-border-bottom-right-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+
+.paginator {margin-top: -4px;}

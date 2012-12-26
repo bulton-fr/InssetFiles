@@ -1,0 +1,52 @@
+/* La balise html5 header */
+header
+{
+	margin-left: 2px;
+	width: 600px;
+	background-color: #FFFFFF;
+	
+	border: 1px solid white;
+	
+	-moz-border-radius-bottomleft: 10px;
+	-webkit-border-bottom-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	-moz-border-radius-bottomright: 10px;
+	-webkit-border-bottom-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	padding: 0 5px;
+	
+	z-index:10;
+	position: relative;
+	top:0; left:0;
+}
+
+/** Partie gauche du header **/
+header .left img, header .left p, header .right img, header .right p {float:left;}
+header .left p, header .right p
+{
+	font-weight: bold;
+	margin-top: 9px;
+}
+
+/** Partie droite du header **/
+header .right img {margin-top: 8px; margin-right: 3px;}
+header .right img.HiLoading {margin-top: 1px;}
+
+/** Formulaire de connexion **/
+form#hi {margin-top: -7px;}
+form#hi dt {display: none;}
+form#hi dd {float: left; margin-right: 5px;}
+form#hi dd#login-element input, form#hi dd#mdp-element input {width: 100px;}
+form#hi dt#HiSend-label {display: none;}
+
+form#hi dd#HiSend-element input
+{
+	border: 0px;
+	background-image: url("../images/tick.png");
+}
+form#hi dd#HiSend-element input:hover {background-color: white;}
+
+form#hi, .formHiSubmit {float: left;}
+.formHiSubmit {margin-top: -10px;}
+.formHiSubmit img {margin-left: -4px; cursor: pointer;}
+.formHiSubmit img#LoadVerifCo {margin-top: 10px;}
